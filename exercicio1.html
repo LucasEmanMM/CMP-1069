@@ -60,7 +60,12 @@
                 renderizarTabela();
                 document.getElementById("alunoForm").reset();
             } else {
-                alert("Idade não pode ser negativa e a nota deve estar entre 0.0 e 10.0");
+              if(idade < 0){
+                alert("Idade não pode ser negativa")
+              }
+              if(nota < 0 || nota > 10){
+                alert("Nota deve estar entre 0.0 e 10.0");
+              }
             }
         }
 
