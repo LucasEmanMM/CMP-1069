@@ -74,13 +74,16 @@
             const nota = parseFloat(document.getElementById("nota").value);
             
             if (nome && idade >= 0 && nota >= 0.0 && nota <= 10.0) {
-                const aluno = new Aluno(nome, idade, curso, nota);
-                alunos.push(aluno);
+                alunos.push({ nome, idade, curso, nota });
                 renderizarTabela();
                 document.getElementById("alunoForm").reset();
             } else {
-                alert("Idade não pode ser negativa e a nota deve estar entre 0.0 e 10.0");
-            }
+              if(idade < 0){
+                alert("Idade não pode ser negativa")
+              }
+              if(nota < 0 || nota > 10){
+                alert("Nota deve estar entre 0.0 e 10.0");
+              }
         }
 
         function renderizarTabela() {
